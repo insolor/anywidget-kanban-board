@@ -1,0 +1,11 @@
+[project]
+name = "example"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "anywidget-kanban-board",
+    "marimo>=0.23.15",
+]
+
+[tool.uv.sources]
+anywidget-kanban-board = { workspace = true }

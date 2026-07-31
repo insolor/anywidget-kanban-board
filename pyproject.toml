@@ -1,0 +1,25 @@
+[project]
+name = "anywidget-kanban-board"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "insolor", email = "insolor@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "anywidget>=0.11.0",
+]
+
+[project.scripts]
+anywidget-kanban-board = "anywidget_kanban_board:main"
+
+[build-system]
+requires = ["uv_build>=0.12.0,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.workspace]
+members = [
+    "example",
+    ".",
+]
