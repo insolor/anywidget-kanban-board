@@ -11,7 +11,7 @@ updates:
           - "ruff"
 
   - package-ecosystem: "uv"
-    directory: "/example?"
+    directory: "/example"
     schedule:
       interval: "monthly"
     groups:
