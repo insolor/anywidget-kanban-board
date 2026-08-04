@@ -1,0 +1,73 @@
+name: Python tests
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'pyproject.toml'
+      - 'uv.lock'
+      - '**.py'
+      - '.github/workflows/python-tests.yml'
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'pyproject.toml'
+      - 'uv.lock'
+      - '**.py'
+      - '.github/workflows/python-tests.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12", "3.13", "3.14"]
+
+    steps:
+    - uses: actions/checkout@v7
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v7
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+      with:
+        version: latest
+
+    - name: Install dependencies
+      run: uv sync
+
+    - name: Lint with ruff
+      run: |
+        uv run ruff check --statistics
+
+    # - name: Test with pytest
+    #   run: |
+    #     uv run pytest --cov=./
+
+    - name: Upload coverage data to coveralls.io
+      run: |
+        pipx run coveralls
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        COVERALLS_FLAG_NAME: ${{ matrix.python-version }}
+        COVERALLS_PARALLEL: true
+
+  coveralls:
+    name: Indicate completion to coveralls.io
+    needs: test
+    runs-on: ubuntu-latest
+    container: python:3-slim
+    steps:
+    - name: Install coveralls
+      run: pip3 install --upgrade coveralls
+    - name: Finished
+      run: coveralls --finish
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
