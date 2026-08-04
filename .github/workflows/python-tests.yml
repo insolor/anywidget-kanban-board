@@ -48,7 +48,9 @@ jobs:
         uv run ruff check --statistics
 
     - name: Run marimo check on example
-      run: uv run marimo check example/*
+      run: |
+        cd example
+        uv run marimo check *
 
     # - name: Test with pytest
     #   run: |
