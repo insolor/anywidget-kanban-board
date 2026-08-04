@@ -200,7 +200,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "anywidget-kanban-board", editable = "." },
-    { name = "marimo", specifier = ">=0.23.15" },
+    { name = "marimo", specifier = ">=0.23.16" },
 ]
 
 [[package]]
