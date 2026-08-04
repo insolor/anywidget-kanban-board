@@ -5,18 +5,18 @@ on:
     branches:
       - main
     paths:
-      - 'pyproject.toml'
-      - 'uv.lock'
-      - '**.py'
+      - '**/pyproject.toml'
+      - '**/uv.lock'
+      - '**/**.py'
       - '.github/workflows/python-tests.yml'
 
   pull_request:
     branches:
       - main
     paths:
-      - 'pyproject.toml'
-      - 'uv.lock'
-      - '**.py'
+      - '**/pyproject.toml'
+      - '**/uv.lock'
+      - '**/**.py'
       - '.github/workflows/python-tests.yml'
 
 jobs:
