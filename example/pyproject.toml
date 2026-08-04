@@ -4,7 +4,7 @@ version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
     "anywidget-kanban-board",
-    "marimo>=0.23.15",
+    "marimo>=0.23.16",
 ]
 
 [tool.uv.sources]
