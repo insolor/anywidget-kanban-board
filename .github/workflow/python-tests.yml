@@ -4,20 +4,20 @@ on:
   push:
     branches:
       - main
-    paths:
-      - '**/pyproject.toml'
-      - '**/uv.lock'
-      - '**/**.py'
-      - '.github/workflows/python-tests.yml'
+    # paths:
+    #   - '**/pyproject.toml'
+    #   - '**/uv.lock'
+    #   - '**/**.py'
+    #   - '.github/workflows/python-tests.yml'
 
   pull_request:
     branches:
       - main
-    paths:
-      - '**/pyproject.toml'
-      - '**/uv.lock'
-      - '**/**.py'
-      - '.github/workflows/python-tests.yml'
+    # paths:
+    #   - '**/pyproject.toml'
+    #   - '**/uv.lock'
+    #   - '**/**.py'
+    #   - '.github/workflows/python-tests.yml'
 
 jobs:
   test:
