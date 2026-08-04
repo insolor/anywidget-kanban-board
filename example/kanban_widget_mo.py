@@ -5,6 +5,7 @@ app = marimo.App(width="medium")
 
 with app.setup(hide_code=True):
     import marimo as mo
+
     from anywidget_kanban_board import KanbanWidget
 
 
@@ -33,7 +34,7 @@ def _(cards):
 
 @app.cell
 def _(widget):
-    {card['id']: card['column'] for card in widget.cards}
+    {card["id"]: card["column"] for card in widget.cards}
     return
 
 
