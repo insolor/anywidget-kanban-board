@@ -81,13 +81,13 @@ function render({ model, el }) {
         title.style.fontFamily = 'Arial, sans-serif';
         cardEl.appendChild(title);
 
-        if (card.desc) {
-            const desc = document.createElement('div');
-            desc.textContent = card.desc;
-            desc.style.fontSize = '0.9em';
-            desc.style.color = '#666';
-            desc.style.marginTop = '4px';
-            cardEl.appendChild(desc);
+        if (card.description) {
+            const description = document.createElement('div');
+            description.textContent = card.description;
+            description.style.fontSize = '0.9em';
+            description.style.color = '#666';
+            description.style.marginTop = '4px';
+            cardEl.appendChild(description);
         }
 
         if (card.tags && Array.isArray(card.tags) && card.tags.length > 0) {

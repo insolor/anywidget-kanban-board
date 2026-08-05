@@ -15,7 +15,7 @@ def _():
         {
             "id": "c1",
             "title": "New task",
-            "desc": "The task's description",
+            "description": "The task's description",
             "tags": {"new", "task"},
             "column": "todo",
         },
@@ -25,9 +25,8 @@ def _():
 
 @app.cell
 def _(cards):
-    kanban = KanbanWidget()
+    kanban = KanbanWidget(cards=cards)
     widget = mo.ui.anywidget(kanban)
-    widget.cards = cards
     widget
     return (widget,)
 
