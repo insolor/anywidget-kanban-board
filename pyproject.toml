@@ -24,9 +24,6 @@ dependencies = [
     "anywidget>=0.11.0",
 ]
 
-[project.scripts]
-anywidget-kanban-board = "anywidget_kanban_board:main"
-
 [build-system]
 requires = ["uv_build>=0.12.1,<0.13.0"]
 build-backend = "uv_build"
