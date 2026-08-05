@@ -1,9 +1,9 @@
 import marimo
 
-__generated_with = "0.23.15"
+__generated_with = "0.23.16"
 app = marimo.App(width="medium")
 
-with app.setup(hide_code=True):
+with app.setup:
     import marimo as mo
 
     from anywidget_kanban_board import KanbanWidget
@@ -23,7 +23,7 @@ def _():
     return (cards,)
 
 
-@app.cell(hide_code=True)
+@app.cell
 def _(cards):
     kanban = KanbanWidget()
     widget = mo.ui.anywidget(kanban)
@@ -34,7 +34,9 @@ def _(cards):
 
 @app.cell
 def _(widget):
-    {card["id"]: card["column"] for card in widget.cards}
+    {
+        "Task states": {card["title"]: card["column"] for card in widget.cards},
+    }
     return
 
 

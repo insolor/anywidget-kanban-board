@@ -21,3 +21,7 @@ or
 ```shell
 poetry add anywidget-kanban-board
 ```
+
+Screenshot of the widget in marimo notebook:
+
+![screenshot](screenshot.png)
